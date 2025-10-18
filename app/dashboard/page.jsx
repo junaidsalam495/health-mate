@@ -74,7 +74,7 @@ export default function DashboardPage() {
 
           <Link
             href="/add-vitals"
-            className="bg-accent hover:bg-green-600 text-black p-6 rounded-lg shadow-md transition transform hover:scale-105"
+            className="bg-primary hover:bg-primary-dark text-black p-6 rounded-lg shadow-md transition transform hover:scale-105"
           >
             <div className="text-3xl mb-2">💓</div>
             <h3 className="font-bold text-lg">Add Vitals</h3>
@@ -83,7 +83,7 @@ export default function DashboardPage() {
 
           <Link
             href="/timeline"
-            className="bg-secondary hover:bg-cyan-600 text-black p-6 rounded-lg shadow-md transition transform hover:scale-105"
+            className="bg-primary hover:bg-primary-dark text-black p-6 rounded-lg shadow-md transition transform hover:scale-105"
           >
             <div className="text-3xl mb-2">📊</div>
             <h3 className="font-bold text-lg">Timeline</h3>

@@ -48,7 +48,7 @@ export default function ReportPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading report...</p>
+          <p className="text-muted-foreground">Loading report?...</p>
         </div>
       </div>
     )
@@ -69,7 +69,7 @@ export default function ReportPage() {
     )
   }
 
-  const analysis = report.analysis
+  const analysis = report?.analysis
 
   return (
     <div className="min-h-screen bg-muted p-4">
@@ -81,9 +81,9 @@ export default function ReportPage() {
         <div className="bg-background rounded-lg shadow-lg p-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-3xl font-bold">{report.fileName}</h1>
-              <p className="text-muted-foreground">Type: {report.reportType}</p>
-              <p className="text-sm text-muted-foreground">{new Date(report.uploadDate).toLocaleDateString()}</p>
+              <h1 className="text-3xl font-bold">{report?.fileName}</h1>
+              <p className="text-muted-foreground">Type: {report?.reportType}</p>
+              <p className="text-sm text-muted-foreground">{new Date(report?.uploadDate).toLocaleDateString()}</p>
             </div>
             <div className="flex gap-2">
               <button
@@ -110,17 +110,17 @@ export default function ReportPage() {
               <div className="bg-muted p-6 rounded-lg">
                 <h2 className="text-xl font-bold mb-3">{language === "en" ? "Summary" : "خلاصہ"}</h2>
                 <p className="text-foreground leading-relaxed">
-                  {language === "en" ? analysis.summary_en : analysis.summary_urdu}
+                  {language === "en" ? analysis?.summary_en : analysis?.summary_urdu}
                 </p>
               </div>
 
-              {analysis.abnormal_values && analysis.abnormal_values.length > 0 && (
+              {analysis?.abnormal_values && analysis?.abnormal_values.length > 0 && (
                 <div className="bg-destructive/10 p-6 rounded-lg border border-destructive/20">
                   <h2 className="text-xl font-bold mb-3 text-destructive">
                     {language === "en" ? "Abnormal Values" : "غیر معمولی اقدار"}
                   </h2>
                   <ul className="space-y-2">
-                    {analysis.abnormal_values.map((value, idx) => (
+                    {analysis?.abnormal_values.map((value, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <span className="text-destructive font-bold">•</span>
                         <span>{value}</span>
@@ -130,13 +130,13 @@ export default function ReportPage() {
                 </div>
               )}
 
-              {analysis.doctor_questions && analysis.doctor_questions.length > 0 && (
+              {analysis?.doctor_questions && analysis?.doctor_questions.length > 0 && (
                 <div className="bg-primary/10 p-6 rounded-lg border border-primary/20">
                   <h2 className="text-xl font-bold mb-3 text-primary">
                     {language === "en" ? "Questions for Your Doctor" : "ڈاکٹر سے سوالات"}
                   </h2>
                   <ul className="space-y-2">
-                    {analysis.doctor_questions.map((q, idx) => (
+                    {analysis?.doctor_questions.map((q, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <span className="text-primary font-bold">{idx + 1}.</span>
                         <span>{q}</span>
@@ -147,13 +147,13 @@ export default function ReportPage() {
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {analysis.foods_to_avoid && analysis.foods_to_avoid.length > 0 && (
+                {analysis?.foods_to_avoid && analysis?.foods_to_avoid.length > 0 && (
                   <div className="bg-accent/10 p-6 rounded-lg border border-accent/20">
                     <h3 className="font-bold mb-3 text-accent">
                       {language === "en" ? "Foods to Avoid" : "بچنے والی غذائیں"}
                     </h3>
                     <ul className="space-y-2">
-                      {analysis.foods_to_avoid.map((food, idx) => (
+                      {analysis?.foods_to_avoid.map((food, idx) => (
                         <li key={idx} className="text-sm">
                           • {food}
                         </li>
@@ -162,13 +162,13 @@ export default function ReportPage() {
                   </div>
                 )}
 
-                {analysis.recommended_foods && analysis.recommended_foods.length > 0 && (
+                {analysis?.recommended_foods && analysis?.recommended_foods.length > 0 && (
                   <div className="bg-accent/10 p-6 rounded-lg border border-accent/20">
                     <h3 className="font-bold mb-3 text-accent">
                       {language === "en" ? "Recommended Foods" : "تجویز کردہ غذائیں"}
                     </h3>
                     <ul className="space-y-2">
-                      {analysis.recommended_foods.map((food, idx) => (
+                      {analysis?.recommended_foods.map((food, idx) => (
                         <li key={idx} className="text-sm">
                           • {food}
                         </li>
@@ -178,13 +178,13 @@ export default function ReportPage() {
                 )}
               </div>
 
-              {analysis.home_remedies && analysis.home_remedies.length > 0 && (
+              {analysis?.home_remedies && analysis?.home_remedies.length > 0 && (
                 <div className="bg-secondary/10 p-6 rounded-lg border border-secondary/20">
                   <h3 className="font-bold mb-3 text-secondary">
                     {language === "en" ? "Home Remedies" : "گھریلو علاج"}
                   </h3>
                   <ul className="space-y-2">
-                    {analysis.home_remedies.map((remedy, idx) => (
+                    {analysis?.home_remedies.map((remedy, idx) => (
                       <li key={idx} className="text-sm">
                         • {remedy}
                       </li>
@@ -195,7 +195,7 @@ export default function ReportPage() {
 
               <div className="bg-yellow-50 dark:bg-yellow-950 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
                 <p className="text-sm text-yellow-900 dark:text-yellow-100">
-                  <strong>Disclaimer:</strong> {analysis.disclaimer}
+                  <strong>Disclaimer:</strong> {analysis?.disclaimer}
                 </p>
               </div>
             </div>
