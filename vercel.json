@@ -1,0 +1,10 @@
+{
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "JWT_SECRET": "@jwt_secret",
+    "MONGODB_URI": "@mongodb_uri",
+    "OPENAI_API_KEY": "@openai_api_key"
+  }
+}
